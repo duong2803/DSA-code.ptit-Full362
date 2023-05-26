@@ -13,6 +13,7 @@ vector<int> a,b;
 
 int adj[mxN][mxN];
 bool visited[mxN][mxN];
+int mx;
 
 int dx[4] = {0,0,1,-1};
 int dy[4] = {1,-1,0,0};
@@ -28,7 +29,9 @@ void compress(vector<int> &arr){
 	for(int i = 0; i < arr.size(); ++i){
 		if(i > 0 && tmp[i].first != tmp[i - 1].first) nxt += 2;
 		arr[tmp[i].second] = nxt;	
+		mx = max(mx,nxt + 5);
 	}
+	
 }
 
 int bfs(int x, int y){
@@ -46,7 +49,7 @@ int bfs(int x, int y){
 		for(int i = 0; i < 4; ++i){
 			int xx = x1 + dx[i];
 			int yy = y1 + dy[i];
-			if(xx >= 0 && yy >= 0 && xx < mxN && yy < mxN && !visited[xx][yy] && adj[xx][yy] != 1){
+			if(xx >= 0 && yy >= 0 && xx < mx && yy < mx && !visited[xx][yy] && adj[xx][yy] != 1){
 				visited[xx][yy] = true;
 				q.push({xx, yy});
 			}	
@@ -83,20 +86,8 @@ int main(){
 			a.push_back(x);
 			b.push_back(y);
 		}
-		for(int i: a)
-			cerr << i << ' ';
-		cerr << '\n';
-		for(int i: b)
-			cerr << i << ' ';
-		cerr << '\n';
 		compress(a);
 		compress(b);
-		for(int i : a)
-			cerr << i << ' ';
-		cerr << '\n';
-		for(int i : b)
-			cerr << i << ' ';
-		cerr << '\n';
 		for(int i = 0; i < 2 * n; i += 2){
 			int x1 = a[i];
 			int x2 = a[i + 1];
@@ -112,13 +103,7 @@ int main(){
 					for(int x = x1; x <= x2; ++x)
 					adj[x][y1] = 1;
 			}
-		}
-		for(int i = 0; i < 15; ++i){
-			for(int j = 0; j < 15; ++j){
-				cerr << adj[i][j] << ' ';
-			}
-			cerr << '\n';
-		}
+		}		
 		for(int i = 2 * n; i < a.size(); ++i){
 			adj[a[i]][b[i]] = -1;
 		}
@@ -135,4 +120,3 @@ int main(){
 
 	return 0;
 }
-
