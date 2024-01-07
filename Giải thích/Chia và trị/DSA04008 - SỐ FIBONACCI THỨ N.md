@@ -8,7 +8,7 @@ Cách làm bài này là sử dụng lũy thừa ma trận, mọi người có t
 ## Cách 1: Nhân ma trận
 Ý tưởng là sử dụng ma trận để lưu các giá trị cần thiết cho việc tính toán và tìm cách **chuyển trạng thái** tới ma trận khác bằng việc nhân ma trận. Cụ thể trong bài này, để tính số Fibonacci thứ $i$ thì cần phải biết giá trị của 2 số Fibonacci trước đó. Mục tiêu của chúng ta là biến đổi: 
 
-$
+$$
 \begin {bmatrix} 
 F_{i - 1} \\
 F_{i - 2} \\
@@ -17,10 +17,11 @@ F_{i - 2} \\
 F_{i} \\
 F_{i - 1} \\
 \end{bmatrix}
-$  
+$$
 
 Gọi $F_i$ là số Fibonacci thứ i, khi đó ta cần tính ma trận $?$ sao cho: 
-$
+
+$$
 \begin {bmatrix} 
 F_i \\
 F_{i - 1} \\
@@ -29,27 +30,29 @@ F_{i - 1} \\
 F_{i - 1} \\
 F_{i - 2} \\
 \end{bmatrix}
-$  
+$$  
 
-Có thể dễ dàng tìm được ma trận ? nếu viết phương trình trên dưới dạng hệ phương trình. Ta có:
+Có thể dễ dàng tìm được ma trận $?$ nếu viết phương trình trên dưới dạng hệ phương trình. Ta có:
 
-$
+$$
 \left\{\begin{matrix}
 F_i = 1 * F_{i - 1} + 1 * F_{i - 2}\\ 
 F_{i - 1} = 1 * F_{i - 1} + 0 * F_{i - 2}\\
 \end{matrix}\right.
-$
+$$
 
 Như vậy ma trận $?$ là: 
-$
+
+$$
 \begin {bmatrix} 
 1 & 1 \\
 1 & 0 \\
 \end{bmatrix}
-$
+$$
 
 Hay ta có:
-$
+
+$$
 \begin {bmatrix} 
 F_i \\
 F_{i - 1} \\
@@ -61,12 +64,11 @@ F_{i - 1} \\
 F_{i - 1} \\
 F_{i - 2} \\
 \end{bmatrix}
-$  
+$$  
 
 Từ đó, chúng ta có thể dễ dàng tính số Fibonacci thứ n theo cách sau:
 
-
-$
+$$
 \begin {bmatrix} 
 F_n \\
 F_{n - 1} \\
@@ -100,13 +102,9 @@ F_{0} \\
 F_{1} \\
 F_{0} \\
 \end{bmatrix} 
-$  
-Độ phức tạp của việc tính lũy thừa của ma trận 
-$\begin {bmatrix}
-1 & 1 \\
-1 & 0 \\
-\end{bmatrix} 
-$ có thể được giảm xuống $O(2^3*log(n))$ bằng việc sử dụng lũy thừa nhị phân (giống việc tính lũy thừa của 1 số).
+$$
+
+Độ phức tạp của việc tính lũy thừa của ma trận có thể được giảm xuống $O(2^3*log(n))$ bằng việc sử dụng lũy thừa nhị phân (giống việc tính lũy thừa của 1 số).
 
 ## Cách 2: Dùng công thức
 
