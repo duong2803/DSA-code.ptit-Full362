@@ -133,7 +133,7 @@ $\cdots$
 
 Nội suy được ra công thức sau (có thể thử lại với những F nhỏ để kiểm chứng):
 
-$F_i = F_{i / 2 - 2} * F_{i / 2 - 1} + F_{i / 2} * F_{i / 2 + 1}$
+$F_i = F_{i / 2 - 1} * F_{i / 2} + F_{i / 2 + 1} * F_{i / 2 + 2}$
 
 Từ đó dễ dàng có thể sử dụng đệ quy có nhớ để tính toán giá trị của $F_i$
 
