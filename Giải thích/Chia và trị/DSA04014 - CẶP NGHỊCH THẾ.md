@@ -9,7 +9,7 @@ Trước khi đọc cách làm này thì cần chắc chắn phải biết merge
 
 Sau khi biết cách sử dụng merge sort thì bài này trở nên rất đơn giản (maybe). Ý tưởng ở đây nằm ở việc **đếm số cặp nghịch thế trong quá trình merge** của thuật toán. Giả sử ta có một mảng như sau: 
 ![test.png](../Resources/capnghichthe1.png)
-..
+...
 
 # Complexity
 - Time complexity:
